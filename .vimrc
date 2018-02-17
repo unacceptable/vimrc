@@ -17,8 +17,12 @@ set expandtab
 
 " Line Spacing behaviors
 set listchars=trail:•,tab:›\ ,extends:#
+set nowrap
 
-" Mouse behavior
+" Cursor behaviors
+set whichwrap+=<,>,[,]
+
+" Mouse behaviors
 if has('mouse')
     set mouse=a
 endif
@@ -39,3 +43,9 @@ imap <Esc>OR *
 imap <Esc>OQ /
 imap <Esc>Ol +
 imap <Esc>OS -
+
+" Plugins
+
+"" Nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
