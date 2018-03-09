@@ -3,6 +3,15 @@ if !empty(glob("~/.vim/autoload/pathogen.vim"))
     execute pathogen#infect()
 endif
 
+silent function! WINDOWS()
+    return  (has('win32') || has('win64'))
+endfunction
+
+if WINDOWS()
+    set swapfile
+    set dir=C:\Temp
+endif
+
 " Syntax behavior:
 syntax on
 filetype plugin indent on
